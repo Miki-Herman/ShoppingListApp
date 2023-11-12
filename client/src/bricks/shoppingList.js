@@ -8,12 +8,11 @@ import Action from './itemAction';
 
 const ShoppingList = () => {
   const [items, setItems] = useState([
-    { id: 1, name: 'Item 1', quantity: 2, type: 'ks' },
-    { id: 2, name: 'Item 2', quantity: 1, type: 'kg' },
-    { id: 3, name: 'Item 3', quantity: 3, type: 'g' },
-    { id: 4, name: 'Item 4', quantity: 5, type: 'ks' },
-    { id: 5, name: 'Item 5', quantity: 2, type: 'kg' },
-    { id: 6, name: 'Item 6', quantity: 1, type: 'g' },
+    { id: 1, name: 'Husa', quantity: 2, type: 'ks' },
+    { id: 2, name: 'Bílé zelí', quantity: 1, type: 'kg' },
+    { id: 3, name: 'Červené zelí', quantity: 3, type: 'g' },
+    { id: 4, name: 'Mouka', quantity: 5, type: 'ks' },
+    { id: 5, name: 'Rohlíky', quantity: 10, type: 'ks' },
   ]);
 
   const [showDeleteModal, setShowDeleteModal] = useState(false);
