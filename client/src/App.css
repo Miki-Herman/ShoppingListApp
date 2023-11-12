@@ -9,6 +9,14 @@
   margin-top: 10px;
 }
 
+.shopping-list{
+  background-color: #FAF9F6;
+}
+
+.change-user{
+  margin-bottom: 15px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

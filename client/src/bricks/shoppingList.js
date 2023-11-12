@@ -70,7 +70,7 @@ const ShoppingList = () => {
 
   return (
     <div style={{ background: '#f5f5f5', padding: '10px', borderRadius: '8px' }}>
-      <Table borderless style={{ background: '#f5f5f5' }}>
+      <Table borderless>
         <thead>
         </thead>
         <tbody>

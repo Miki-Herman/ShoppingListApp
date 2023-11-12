@@ -8,9 +8,9 @@ import LeaveAction from './leaveAction';
 
 const UserList = (props) => {
   const [users, setUsers] = useState([
-    { id: 1, name: 'Creator', role: 'Creator' },
-    { id: 2, name: 'User 1', role: 'Invited' },
-    { id: 3, name: 'User 2', role: 'Invited' },
+    { id: 1, name: 'Tonda', role: 'Creator' },
+    { id: 2, name: 'Čeněk', role: 'Invited' },
+    { id: 3, name: 'Magda', role: 'Invited' },
     // Add more users as needed
   ]);
 
@@ -38,7 +38,7 @@ const UserList = (props) => {
 
   return (
     <div style={{ background: '#f5f5f5', padding: '10px', borderRadius: '8px' }}>
-      <Table borderless style={{ backgroundColor: '#f5f5f5' }}>
+      <Table borderless>
         <tbody>
           {users.map((user) => (
             <tr key={user.id}>

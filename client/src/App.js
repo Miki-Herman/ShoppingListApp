@@ -15,11 +15,12 @@ function App() {
 
   return (
     <div className='App'>
-
+      <div className='change-user'>
       <Stack direction="horizontal" gap={3}>
         <Button variant= "warning" onClick={switchUser}>Change Role View</Button>
         <h4>Current Role: {userRole}</h4>
       </Stack>
+      </div>
 
       {/* Shopping list part */}
       <div><Header userRole={userRole}/></div>
