@@ -1,9 +1,10 @@
 // ShoppingList.js
 import React, { useState } from 'react';
+import './style.css';
 import { Table, Button, Form, Modal } from 'react-bootstrap';
 import Icon from '@mdi/react';
 import { mdiWindowClose } from '@mdi/js';
-import Action from './item_action'; // Assuming Action component is in the same directory
+import Action from './itemAction';
 
 const ShoppingList = () => {
   const [items, setItems] = useState([
@@ -13,7 +14,6 @@ const ShoppingList = () => {
     { id: 4, name: 'Item 4', quantity: 5, type: 'ks' },
     { id: 5, name: 'Item 5', quantity: 2, type: 'kg' },
     { id: 6, name: 'Item 6', quantity: 1, type: 'g' },
-    // Add more items as needed
   ]);
 
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -77,7 +77,7 @@ const ShoppingList = () => {
         <tbody>
           {items.map((item) => (
             <tr key={item.id}>
-              <td>
+              <td className='quantity-column'>
                 <div style={{ opacity: checkedItems[item.id] ? 0.5 : 1 }}>
                   <Form.Control
                     type="number"
@@ -87,7 +87,7 @@ const ShoppingList = () => {
                 </div>
               </td>
               <td>
-                <div style={{ opacity: checkedItems[item.id] ? 0.5 : 1 }}>
+                <div className='type-column' style={{ opacity: checkedItems[item.id] ? 0.5 : 1 }}>
                   <Form.Control
                     as="select"
                     value={item.type}
@@ -100,7 +100,7 @@ const ShoppingList = () => {
                 </div>
               </td>
               <td>
-                <div style={{ opacity: checkedItems[item.id] ? 0.5 : 1 }}>
+                <div className='name-column' style={{ opacity: checkedItems[item.id] ? 0.5 : 1 }} >
                   <Form.Control
                     type="text"
                     value={item.name}
@@ -108,15 +108,16 @@ const ShoppingList = () => {
                   />
                 </div>
               </td>
-              <td>
+              <td className='checkbox-column'>
                 <Form.Check
-                  type="checkbox"
+                  type='checkbox'
                   checked={checkedItems[item.id]}
                   onChange={() => handleCheckboxChange(item.id)}
+                  className='checkbox'
                 />
               </td>
-              <td>
-                <Button variant="danger" onClick={() => handleShowDeleteModal(item.id)}>
+              <td className='delete-button'>
+                <Button variant='danger' size= 'sm' onClick={() => handleShowDeleteModal(item.id)}>
                   <Icon path={mdiWindowClose} size={1} />
                 </Button>
               </td>

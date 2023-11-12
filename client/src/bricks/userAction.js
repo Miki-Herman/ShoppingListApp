@@ -1,7 +1,10 @@
+// Updated AddUser.js
 import React, { useState } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
+import Icon from '@mdi/react';
+import { mdiAccountPlus } from '@mdi/js';
 
-const AddUser = ({ addUser }) => {
+const AddUser = ({ userRole, addUser }) => {
   const [showAddUserModal, setShowAddUserModal] = useState(false);
   const [newUserName, setNewUserName] = useState('');
 
@@ -9,12 +12,6 @@ const AddUser = ({ addUser }) => {
   const handleCloseAddUserModal = () => setShowAddUserModal(false);
 
   const handleAddUser = () => {
-    // You can perform validation here before adding the user
-    if (newUserName.trim() === '') {
-      // Handle validation error
-      return;
-    }
-
     // Add the new user with role 'Invited'
     addUser({ name: newUserName, role: 'Invited' });
 
@@ -23,10 +20,10 @@ const AddUser = ({ addUser }) => {
     handleCloseAddUserModal();
   };
 
-  return (
+  return(
     <>
       <Button variant="primary" onClick={handleShowAddUserModal}>
-        Add User
+        <Icon path={mdiAccountPlus} size={1} /> Add User
       </Button>
 
       <Modal show={showAddUserModal} onHide={handleCloseAddUserModal}>

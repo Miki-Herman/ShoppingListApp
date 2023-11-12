@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import './style.css';
 import Icon from '@mdi/react';
 import { mdiWindowClose } from '@mdi/js';
-import { Table, Button, Modal } from 'react-bootstrap';
-import AddUser from './user_action';
+import { Table, Button, Modal, Stack } from 'react-bootstrap';
+import AddUser from './userAction';
+import LeaveAction from './leaveAction';
 
-const UserList = () => {
+const UserList = (props) => {
   const [users, setUsers] = useState([
     { id: 1, name: 'Creator', role: 'Creator' },
     { id: 2, name: 'User 1', role: 'Invited' },
@@ -36,22 +38,20 @@ const UserList = () => {
 
   return (
     <div style={{ background: '#f5f5f5', padding: '10px', borderRadius: '8px' }}>
-      <Table borderless style={{ background: '#f5f5f5' }}>
+      <Table borderless style={{ backgroundColor: '#f5f5f5' }}>
         <tbody>
           {users.map((user) => (
             <tr key={user.id}>
-              <td>
+              <td className='name-column'>
                 <div>{user.name}</div>
               </td>
               <td>
                 <div>{user.role}</div>
               </td>
-              <td>
-                {user.role !== 'Creator' && (
-                  <Button variant="danger" onClick={() => handleShowDeleteModal(user.id)}>
+              <td className='delete-button'>
+                  {props.userRole === "Creator" ?(<Button variant="danger" size= 'sm' onClick={() => handleShowDeleteModal(user.id)}>
                     <Icon path={mdiWindowClose} size={1} />
-                  </Button>
-                )}
+                  </Button>):null}
               </td>
             </tr>
           ))}
@@ -72,7 +72,12 @@ const UserList = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-      <AddUser addUser={addUser} />
+
+
+        <Stack direction="horizontal" gap={3}>
+            {props.userRole === "Creator" ?(<AddUser addUser={addUser}/>):null} 
+            <LeaveAction/>
+        </Stack>
     </div>
   );
 };

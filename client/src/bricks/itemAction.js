@@ -1,6 +1,8 @@
 // Action.js
 import React, { useState } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
+import Icon from '@mdi/react';
+import { mdiCartPlus } from '@mdi/js';
 
 const Action = ({ onAddItems }) => {
   const [showModal, setShowModal] = useState(false);
@@ -41,7 +43,7 @@ const Action = ({ onAddItems }) => {
   return (
     <>
       <Button variant="primary" onClick={handleShowModal}>
-        Add Item
+          <Icon path={mdiCartPlus} size={1} /> Add Item
       </Button>
 
       <Modal show={showModal} onHide={handleHideModal}>
